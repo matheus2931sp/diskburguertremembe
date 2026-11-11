@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disk Burguer Tremembé | O Melhor Hambúrguer Artesanal da Zona Norte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF9F0D',
+                        dark: '#121212',
+                        cardBg: '#1E1E1E',
+                        darker: '#0A0A0A'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-gray-100 font-sans antialiased selection:bg-primary selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+                    <i class="fa-solid fa-burger text-black text-2xl"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-white block">DISK BURGUER</span>
+                    <span class="text-xs font-semibold text-primary tracking-widest uppercase">TREMEMBÉ • ZN</span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#inicio" class="hover:text-primary transition-colors">Início</a>
+                <a href="#diferenciais" class="hover:text-primary transition-colors">Diferenciais</a>
+                <a href="#cardapio" class="hover:text-primary transition-colors">Cardápio</a>
+                <a href="#avaliacoes" class="hover:text-primary transition-colors">Avaliações</a>
+                <a href="#localizacao" class="hover:text-primary transition-colors">Localização</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button type="button" onclick="toggleCart()" class="relative p-3 bg-cardBg hover:bg-gray-800 rounded-xl border border-gray-800 transition-colors cursor-pointer">
+                    <i class="fa-solid fa-bag-shopping text-primary text-lg"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-primary text-black font-bold text-xs w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
+                </button>
+                <a href="#cardapio" class="hidden sm:inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-amber-500 text-black font-bold rounded-xl shadow-lg transition-all">
+                    FAZER PEDIDO <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-32 pb-20 md:pt-44 md:pb-32 bg-gradient-to-b from-black via-dark to-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm font-semibold">
+                        <i class="fa-solid fa-fire mr-2"></i> O Brabo da Zona Norte
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        O Verdadeiro <span class="text-primary">Hambúrguer Artesanal</span> no Tremembé
+                    </h1>
+                    <p class="text-lg text-gray-400 max-w-xl mx-auto lg:mx-0">
+                        Blend 100% bovino, queijos selecionados e pão macio que desmancha na boca. Peça direto pelo WhatsApp sem complicações!
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                        <a href="#cardapio" class="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-amber-500 text-black font-extrabold rounded-xl shadow-xl transition-all text-center">
+                            VER CARDÁPIO COMPLETO
+                        </a>
+                        <a href="https://wa.me/5511978560568?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" class="w-full sm:w-auto px-8 py-4 bg-cardBg hover:bg-gray-800 border border-gray-700 text-white font-bold rounded-xl transition-all text-center flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp text-green-500 text-xl mr-2"></i> Chamar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="relative flex justify-center">
+                    <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-2 border-gray-800 bg-cardBg group">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Hambúrguer" class="w-full h-full object-cover">
+                        <div class="absolute bottom-6 left-6 right-6 p-4 bg-dark/90 backdrop-blur-md border border-gray-700/50 rounded-2xl">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs text-primary font-bold uppercase tracking-wider">Combo da Semana</span>
+                                    <h3 class="text-white font-bold text-lg">Burger + Batata + Refri</h3>
+                                </div>
+                                <span class="text-primary font-extrabold text-xl">R$ 38,90</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section id="diferenciais" class="py-20 bg-dark border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-primary font-bold text-sm tracking-widest uppercase">Por que pedir conosco?</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Qualidade incomparável na Zona Norte</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-cardBg border border-gray-800 rounded-3xl">
+                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-2xl mb-6"><i class="fa-solid fa-fire-burner"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Blend Fresco Diário</h3>
+                    <p class="text-gray-400">Carnes selecionadas moídas todos os dias, suculentas e grelhadas no ponto certo.</p>
+                </div>
+                <div class="p-8 bg-cardBg border border-gray-800 rounded-3xl">
+                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-2xl mb-6"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Entrega Rápida</h3>
+                    <p class="text-gray-400">Sua comida chega quentinha e crocante em todo o Tremembé e redondezas.</p>
+                </div>
+                <div class="p-8 bg-cardBg border border-gray-800 rounded-3xl">
+                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-2xl mb-6"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Preço Justo</h3>
+                    <p class="text-gray-400">Lanches fartos e combos que cabem no bolso sem taxas abusivas de aplicativos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cardápio -->
+    <section id="cardapio" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-primary font-bold text-sm tracking-widest uppercase">Cardápio Exclusivo</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Escolha seu favorito e monte seu pedido</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-cardBg border border-gray-800 rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Burger" class="w-full h-full object-cover">
+                            <span class="absolute top-3 right-3 bg-primary text-black font-bold text-xs px-3 py-1 rounded-full">Mais Vendido</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Tremembé Monster (180g)</h3>
+                        <p class="text-gray-400 text-sm mb-4">Blend 180g bovino, triplo cheddar, bacon crocante e maionese verde no pão brioche.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                        <span class="text-primary font-extrabold text-xl">R$ 38,90</span>
+                        <button type="button" onclick="addToCart('Tremembé Monster (180g)', 38.90)" class="px-4 py-2.5 bg-primary hover:bg-amber-500 text-black font-bold rounded-xl text-sm transition-all cursor-pointer">
+                            <i class="fa-solid fa-plus mr-1"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-cardBg border border-gray-800 rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-2xl overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Burger" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Artesanal Classic</h3>
+                        <p class="text-gray-400 text-sm mb-4">Blend bovino 160g, queijo prato, alface, tomate e molho especial.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                        <span class="text-primary font-extrabold text-xl">R$ 29,90</span>
+                        <button type="button" onclick="addToCart('Artesanal Classic', 29.90)" class="px-4 py-2.5 bg-primary hover:bg-amber-500 text-black font-bold rounded-xl text-sm transition-all cursor-pointer">
+                            <i class="fa-solid fa-plus mr-1"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-cardBg border border-gray-800 rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-2xl overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80" alt="Batata" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Batata Frita Rústica</h3>
+                        <p class="text-gray-400 text-sm mb-4">Porção caprichada com ervas finas e maionese artesanal.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                        <span class="text-primary font-extrabold text-xl">R$ 26,90</span>
+                        <button type="button" onclick="addToCart('Batata Frita Rústica', 26.90)" class="px-4 py-2.5 bg-primary hover:bg-amber-500 text-black font-bold rounded-xl text-sm transition-all cursor-pointer">
+                            <i class="fa-solid fa-plus mr-1"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avaliações -->
+    <section id="avaliacoes" class="py-20 bg-dark border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-primary font-bold text-sm tracking-widest uppercase">Prova Social</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">O que dizem nossos clientes</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-cardBg border border-gray-800 p-8 rounded-3xl">
+                    <div class="flex text-primary mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 mb-6 italic">"O melhor hambúrguer do Tremembé sem dúvida nenhuma! Chegou super rápido e quentinho."</p>
+                    <div class="text-white font-bold text-sm">Ricardo Carvalho</div>
+                    <div class="text-xs text-gray-400">Tremembé, SP</div>
+                </div>
+                <div class="bg-cardBg border border-gray-800 p-8 rounded-3xl">
+                    <div class="flex text-primary mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 mb-6 italic">"Atendimento nota 10 e lanche muito caprichado. Ingredientes super frescos."</p>
+                    <div class="text-white font-bold text-sm">Mariana Santos</div>
+                    <div class="text-xs text-gray-400">Vila Nova Mazzei</div>
+                </div>
+                <div class="bg-cardBg border border-gray-800 p-8 rounded-3xl">
+                    <div class="flex text-primary mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                    <p class="text-gray-300 mb-6 italic">"Pedi o combo monster com batata e estava impecável. Virou meu delivery oficial!"</p>
+                    <div class="text-white font-bold text-sm">Fernando Lima</div>
+                    <div class="text-xs text-gray-400">Jardim Tremembé</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização -->
+    <section id="localizacao" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-cardBg border border-gray-800 rounded-3xl p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-primary font-bold text-sm tracking-widest uppercase">Onde Estamos</span>
+                    <h2 class="text-3xl font-extrabold text-white">Rua Maria Amália Lopes Azevedo, 1027</h2>
+                    <p class="text-gray-400">Tremembé, São Paulo - SP</p>
+                    <p class="text-green-500 font-bold">• Aberto Agora para Delivery</p>
+                    <p class="text-white font-bold">WhatsApp: (11) 9 7856-0568</p>
+                </div>
+                <div class="h-64 bg-gray-900 rounded-2xl flex items-center justify-center text-center p-6 border border-gray-800">
+                    <div>
+                        <i class="fa-solid fa-map-location-dot text-5xl text-primary mb-4"></i>
+                        <h3 class="text-white font-bold">Disk Burguer Tremembé</h3>
+                        <a href="https://maps.google.com/?q=Rua+Maria+Amalia+Lopes+Azevedo+1027+Tremembe" target="_blank" class="inline-block mt-4 px-6 py-2.5 bg-primary text-black font-bold text-sm rounded-xl hover:bg-amber-500 transition-colors">
+                            Abrir no Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5511978560568?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl transition-transform hover:scale-110">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Carrinho Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex justify-end">
+        <div class="w-full max-w-md bg-darker h-full border-l border-gray-800 p-6 flex flex-col justify-between shadow-2xl">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-gray-800">
+                    <h3 class="text-xl font-bold text-white flex items-center">
+                        <i class="fa-solid fa-bag-shopping text-primary mr-3"></i> Seu Carrinho
+                    </h3>
+                    <button type="button" onclick="toggleCart()" class="w-10 h-10 bg-cardBg hover:bg-gray-800 rounded-xl text-gray-400 hover:text-white flex items-center justify-center cursor-pointer">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <div id="cart-items" class="py-6 space-y-4 overflow-y-auto max-h-[50vh]">
+                    <p class="text-gray-500 text-center py-8">Seu carrinho está vazio.</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 space-y-4">
+                <div class="flex justify-between items-center text-lg font-bold text-white">
+                    <span>Total:</span>
+                    <span id="cart-total" class="text-primary">R$ 0,00</span>
+                </div>
+                <button type="button" onclick="checkoutWhatsApp()" class="w-full py-4 bg-green-600 hover:bg-green-500 text-white font-extrabold rounded-xl transition-all shadow-lg flex items-center justify-center cursor-pointer">
+                    <i class="fa-brands fa-whatsapp text-2xl mr-2"></i> FINALIZAR PEDIDO NO WHATSAPP
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de Controle -->
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function addToCart(name, price) {
+            const item = cart.find(i => i.name === name);
+            if (item) {
+                item.quantity++;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCartUI();
+            toggleCart();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items');
+            const count = document.getElementById('cart-count');
+            const totalEl = document.getElementById('cart-total');
+            
+            const totalQty = cart.reduce((sum, i) => sum + i.quantity, 0);
+            count.innerText = totalQty;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="text-gray-500 text-center py-8">Seu carrinho está vazio.</p>';
+                totalEl.innerText = 'R$ 0,00';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                let sub = item.price * item.quantity;
+                total += sub;
+                html += `
+                    <div class="flex justify-between items-center bg-cardBg p-4 rounded-2xl border border-gray-800">
+                        <div>
+                            <h4 class="text-white font-bold text-sm">${item.name}</h4>
+                            <span class="text-primary text-xs font-semibold">R$ ${item.price.toFixed(2)} x ${item.quantity}</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="changeQuantity(${index}, -1)" class="w-8 h-8 bg-gray-800 text-white rounded-lg cursor-pointer">-</button>
+                            <span class="text-white text-sm font-bold">${item.quantity}</span>
+                            <button type="button" onclick="changeQuantity(${index}, 1)" class="w-8 h-8 bg-gray-800 text-white rounded-lg cursor-pointer">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            totalEl.innerText = `R$ ${total.toFixed(2)}`;
+        }
+
+        function changeQuantity(index, delta) {
+            cart[index].quantity += delta;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+
+            let msg = "🍔 *NOVO PEDIDO - DISK BURGUER TREMEMBÉ*%0A%0A";
+            let total = 0;
+
+            cart.forEach(i => {
+                let sub = i.price * i.quantity;
+                total += sub;
+                msg += `• ${i.quantity}x ${i.name} - R$ ${sub.toFixed(2)}%0A`;
+            });
+
+            msg += `%0A💰 *Total: R$ ${total.toFixed(2)}*%0A%0AEndereço de Entrega: [Digite aqui seu endereço]`;
+
+            window.open(`https://wa.me/5511978560568?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
